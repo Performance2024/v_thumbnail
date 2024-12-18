@@ -16,17 +16,17 @@ To use `v_thumbnail` in your Flutter project, add the following dependency to yo
 ```yaml
 dependencies:
   v_thumbnail: ^0.0.1
+```
 Then, run the following command in your terminal:
 
-bash
-Copy code
+```bash
 flutter pub get
-Usage
+```
+## Usage
 Here's how you can use the v_thumbnail plugin in your Flutter app:
 
-Example Code:
-dart
-Copy code
+### Example Code:
+```dart
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
@@ -135,49 +135,56 @@ class _MyAppState extends State<MyApp> {
     );
   }
 }
-How It Works
-Select a Video: The user picks a video from their gallery using the ImagePicker package.
-Generate a Thumbnail: The VThumbnail.generateThumbnail() method is called to generate a thumbnail from the selected video. You can customize the size and the frame (in milliseconds) from which the thumbnail is generated.
-Display Thumbnail: Once the thumbnail is generated, it is displayed on the screen.
+```
+### How It Works
+- **Select a Video:** The user picks a video from their gallery using the `ImagePicker` package.
+- **Generate a Thumbnail:** The `VThumbnail.generateThumbnail()` method is called to generate a thumbnail from the selected video. You can customize the size and the frame (in milliseconds) from which the thumbnail is generated.
+- **Display Thumbnail:** Once the thumbnail is generated, it is displayed on the screen.
 Methods
 VThumbnail.generateThumbnail()
 Generates a thumbnail from a video file.
 
-dart
-Copy code
+```dart
 static Future<String?> generateThumbnail({
   required String videoPath,
   int width = 100,
   int height = 100,
   int timeMs = 0,
 });
-videoPath: Path to the video file.
-width: Width of the thumbnail.
-height: Height of the thumbnail.
-timeMs: The time (in milliseconds) from the video at which the thumbnail will be generated (default is 0, which generates from the first frame).
-VThumbnail.generateMultipleThumbnails()
+```
+- `videoPath`: Path to the video file.
+- `width`: Width of the thumbnail.
+- `height`: Height of the thumbnail.
+- `timeMs`: The time (in milliseconds) from the video at which the thumbnail will be generated (default is 0, which generates from the first frame).
+
+`VThumbnail.generateMultipleThumbnails()`  
 Generates multiple thumbnails from a video file.
 
-dart
-Copy code
+```dart
 static Future<List<String>> generateMultipleThumbnails({
   required String videoPath,
   int width = 100,
   int height = 100,
   int numberOfThumbnails = 5,
 });
-videoPath: Path to the video file.
-width: Width of the thumbnail.
-height: Height of the thumbnail.
-numberOfThumbnails: The number of thumbnails to generate.
-Platforms Supported
-Android
-iOS
-Troubleshooting
-Make sure you have the correct permissions in AndroidManifest.xml (for Android) and Info.plist (for iOS) to access the gallery and files.
+```
+- `videoPath`: Path to the video file.
+- `width`: Width of the thumbnail.
+- `height`: Height of the thumbnail.
+- `numberOfThumbnails`: The number of thumbnails to generate.
+## Platforms Supported
+- Android
+- iOS
+## Troubleshooting
+Make sure you have the correct permissions in `AndroidManifest.xml` (for Android) and `Info.plist` (for iOS) to access the gallery and files.
 Ensure that the video path you provide is correct and accessible.
-Contributing
+
+## Contributing
 If you'd like to contribute to the development of this plugin, please fork the repository and submit a pull request with your proposed changes. Make sure to write tests for any new functionality.
 
-License
+## License
 This plugin is licensed under the MIT License. See the LICENSE file for more details.
+
+
+
+
