@@ -7,9 +7,25 @@ import 'package:plugin_platform_interface/plugin_platform_interface.dart';
 class MockVThumbnailPlatform
     with MockPlatformInterfaceMixin
     implements VThumbnailPlatform {
+  @override
+  Future<List<String>> generateMultipleThumbnails(
+      {required String videoPath,
+      int width = 100,
+      int height = 100,
+      int numberOfThumbnails = 5}) {
+    // TODO: implement generateMultipleThumbnails
+    throw UnimplementedError();
+  }
 
   @override
-  Future<String?> getPlatformVersion() => Future.value('42');
+  Future<String?> generateThumbnail(
+      {required String videoPath,
+      int width = 100,
+      int height = 100,
+      int timeMs = 0}) {
+    // TODO: implement generateThumbnail
+    throw UnimplementedError();
+  }
 }
 
 void main() {
@@ -17,13 +33,5 @@ void main() {
 
   test('$MethodChannelVThumbnail is the default instance', () {
     expect(initialPlatform, isInstanceOf<MethodChannelVThumbnail>());
-  });
-
-  test('getPlatformVersion', () async {
-    VThumbnail vThumbnailPlugin = VThumbnail();
-    MockVThumbnailPlatform fakePlatform = MockVThumbnailPlatform();
-    VThumbnailPlatform.instance = fakePlatform;
-
-    expect(await vThumbnailPlugin.getPlatformVersion(), '42');
   });
 }

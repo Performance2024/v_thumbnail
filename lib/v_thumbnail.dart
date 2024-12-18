@@ -8,7 +8,33 @@
 import 'v_thumbnail_platform_interface.dart';
 
 class VThumbnail {
-  Future<String?> getPlatformVersion() {
-    return VThumbnailPlatform.instance.getPlatformVersion();
+
+  static Future<String?> generateThumbnail({
+    required String videoPath,
+    int width = 100,
+    int height = 100,
+    int timeMs = 0,
+  }) async {
+    return await VThumbnailPlatform.instance.generateThumbnail(
+      videoPath: videoPath,
+      width: width,
+      height: height,
+      timeMs: timeMs,
+    );
+  }
+
+  /// Génère plusieurs miniatures
+  static Future<List<String>> generateMultipleThumbnails({
+    required String videoPath,
+    int width = 100,
+    int height = 100,
+    int numberOfThumbnails = 5,
+  }) async {
+    return await VThumbnailPlatform.instance.generateMultipleThumbnails(
+      videoPath: videoPath,
+      width: width,
+      height: height,
+      numberOfThumbnails: numberOfThumbnails,
+    );
   }
 }
