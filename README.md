@@ -15,7 +15,7 @@ To use `v_thumbnail` in your Flutter project, add the following dependency to yo
 
 ```yaml
 dependencies:
-  v_thumbnail: ^0.1.0
+  v_thumbnail: ^0.1.1
 ```
 Then, run the following command in your terminal:
 
