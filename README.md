@@ -15,7 +15,7 @@ To use `v_thumbnail` in your Flutter project, add the following dependency to yo
 
 ```yaml
 dependencies:
-  v_thumbnail: ^0.0.1
+  v_thumbnail: ^0.1.0
 ```
 Then, run the following command in your terminal:
 
@@ -171,7 +171,13 @@ static Future<List<String>> generateMultipleThumbnails({
 - `videoPath`: Path to the video file.
 - `width`: Width of the thumbnail.
 - `height`: Height of the thumbnail.
-- `numberOfThumbnails`: The number of thumbnails to generate.
+- `numberOfThumbnails`: The number of thumbnails to generate, spread evenly across the video's duration.
+
+## Notes
+- Both methods run off the main thread natively, so calling them does not block the UI.
+- On failure, `generateThumbnail` returns `null` and `generateMultipleThumbnails` returns an empty list — neither throws.
+- Generated thumbnail files are written to the OS-managed cache directory (`cacheDir` on Android, `.cachesDirectory` on iOS), which the system may purge under storage pressure. Copy the file elsewhere if you need to keep it beyond the current session.
+
 ## Platforms Supported
 - Android
 - iOS
