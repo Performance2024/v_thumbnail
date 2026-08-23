@@ -8,8 +8,30 @@
 
 import 'package:flutter_test/flutter_test.dart';
 import 'package:integration_test/integration_test.dart';
-
+import 'package:v_thumbnail/v_thumbnail.dart';
 
 void main() {
   IntegrationTestWidgetsFlutterBinding.ensureInitialized();
+
+  testWidgets('generateThumbnail on a missing file fails gracefully',
+      (tester) async {
+    final result = await VThumbnail.generateThumbnail(
+      videoPath: '/no/such/video.mp4',
+      width: 100,
+      height: 100,
+    );
+
+    expect(result, isNull);
+  });
+
+  testWidgets(
+      'generateMultipleThumbnails with numberOfThumbnails=0 returns an empty list',
+      (tester) async {
+    final results = await VThumbnail.generateMultipleThumbnails(
+      videoPath: '/no/such/video.mp4',
+      numberOfThumbnails: 0,
+    );
+
+    expect(results, isEmpty);
+  });
 }

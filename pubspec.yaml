@@ -1,6 +1,6 @@
 name: v_thumbnail
 description: "Generate thumbnail from video"
-version: 0.0.1
+version: 0.1.0
 homepage: https://github.com/Performance2024/v_thumbnail
 repository: https://github.com/Performance2024/v_thumbnail
 issue_tracker: https://github.com/Performance2024/v_thumbnail/issues
@@ -22,7 +22,7 @@ flutter:
   plugin:
     platforms:
       android:
-        package: com.example.v_thumbnail
+        package: com.performance2024.vthumbnail
         pluginClass: VThumbnailPlugin
       ios:
         pluginClass: VThumbnailPlugin
